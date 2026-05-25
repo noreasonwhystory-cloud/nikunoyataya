@@ -128,9 +128,7 @@
   }
   .hero .stage .ph{
     position:absolute;inset:0;
-    background:
-      radial-gradient(120% 80% at 70% 50%, rgba(0,0,0,.0) 0%, rgba(0,0,0,.55) 100%),
-      repeating-linear-gradient(45deg,#9a6a3c 0 14px,#7a4f25 14px 28px);
+    background:url('assets/rank-fillet.png') center/cover no-repeat;
   }
   /* legibility gradient on the left where overlay text sits */
   .hero .stage::before{
@@ -648,7 +646,7 @@
 
     <div class="rank-row">
       <article class="rank-card">
-        <div class="img"><span class="badge">1</span></div>
+        <div class="img has-img" style="--img:url('assets/rank-fillet.png')"><span class="badge">1</span></div>
         <div class="meta">
           <h3 class="name">神戸牛 ヒレステーキ</h3>
           <div class="weight">150g（1枚）</div>
@@ -667,7 +665,7 @@
       </article>
 
       <article class="rank-card">
-        <div class="img"><span class="badge">2</span></div>
+        <div class="img has-img" style="--img:url('assets/rank-loin.png')"><span class="badge">2</span></div>
         <div class="meta">
           <h3 class="name">神戸牛 ロースステーキ</h3>
           <div class="weight">250g（1枚）</div>
@@ -782,13 +780,7 @@
         <div class="l">すき焼き</div>
       </div>
       <div class="scene">
-        <div class="ph"></div>
-        <div class="ic">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
-            <path d="M4 4l5 5M9 4l-5 5"/>
-            <path d="M19 4v8c0 1-1 2-2 2s-2-1-2-2V4M17 14v6"/>
-          </svg>
-        </div>
+        <div class="ph img" style="--img:url('assets/rank-loin.png')"></div>
         <div class="l">ステーキ</div>
       </div>
       <div class="scene">
