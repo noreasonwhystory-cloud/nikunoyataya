@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<title>肉乃ヤタヤ｜厳選された神戸牛</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --gold:#caa15a;
+    --gold-2:#b8884a;
+    --gold-soft:#e3c188;
+    --ink:#1f242e;
+    --ink-2:#262b35;
+    --ink-3:#11151c;
+    --line:#e9e4dc;
+    --line-dark:#2f3540;
+    --body:#3a3a3a;
+    --muted:#8b8b8b;
+    --bg:#ffffff;
+    --bg-soft:#fbf8f3;
+    --star:#f0b53a;
+  }
+
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
+    color:var(--body);
+    background:#f3f1ec;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+    line-height:1.6;
+  }
+  .page{
+    max-width:430px;
+    margin:0 auto;
+    background:#fff;
+    min-height:100vh;
+    position:relative;
+    overflow:hidden;
+  }
+
+  /* ===== Header ===== */
+  .header{
+    height:56px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 16px;
+    background:var(--ink);
+    border-bottom:1px solid rgba(255,255,255,.06);
+    position:sticky;
+    top:0;
+    z-index:30;
+  }
+  .icon-btn{
+    width:32px;height:32px;
+    display:grid;place-items:center;
+    background:none;border:none;cursor:pointer;
+    color:#fff;
+    position:relative;
+  }
+  .icon-btn svg{width:24px;height:24px;}
+  .brand{
+    display:flex;flex-direction:row;align-items:center;gap:8px;
+    line-height:1;
+    text-decoration:none;
+  }
+  .brand .crest{
+    width:32px;height:32px;display:block;
+    object-fit:contain;
+    filter:invert(1);
+  }
+  .brand .txt{
+    display:flex;flex-direction:column;gap:2px;
+  }
+  .brand .name{
+    font-family:"Noto Serif JP",serif;
+    font-weight:700;font-size:16px;color:#fff;
+    letter-spacing:.08em;
+  }
+  .brand .romaji{
+    font-family:"Cormorant Garamond",serif;
+    font-size:8.5px;letter-spacing:.45em;color:var(--gold-soft);
+  }
+  .cart-badge{
+    position:absolute;top:2px;right:0;
+    width:16px;height:16px;border-radius:50%;
+    background:var(--gold);
+    color:#fff;font-size:10px;font-weight:700;
+    display:grid;place-items:center;
+  }
+
+  /* ===== Shipping banner ===== */
+  .ship-banner{
+    background:linear-gradient(180deg,#e1b977 0%, #d1a25b 100%);
+    color:#fff;
+    display:grid;
+    grid-template-columns:1fr 1px 1fr;
+    align-items:center;
+    height:44px;
+    font-size:13px;
+    font-weight:500;
+  }
+  .ship-banner > div{
+    display:flex;align-items:center;justify-content:center;gap:6px;
+  }
+  .ship-banner .divider{
+    width:1px;height:22px;background:rgba(255,255,255,.45);
+  }
+  .ship-banner svg{width:18px;height:18px;}
+
+  /* ===== Hero ===== */
+  .hero{
+    position:relative;
+    padding:0;
+    background:#fbf8f3;
+  }
+  .hero .stage{
+    position:relative;
+    aspect-ratio: 390/420;
+    width:100%;
+    overflow:hidden;
+    background:#f3ede2;
+  }
+  .hero .stage .ph{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(120% 80% at 70% 50%, rgba(0,0,0,.0) 0%, rgba(0,0,0,.55) 100%),
+      repeating-linear-gradient(45deg,#9a6a3c 0 14px,#7a4f25 14px 28px);
+  }
+  /* legibility gradient on the left where overlay text sits */
+  .hero .stage::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      linear-gradient(90deg,
+        rgba(251,248,243,.95) 0%,
+        rgba(251,248,243,.85) 30%,
+        rgba(251,248,243,.35) 55%,
+        rgba(251,248,243,0) 75%);
+    z-index:2;
+  }
+  .hero .overlay{
+    position:absolute;
+    inset:0;
+    z-index:3;
+    padding:36px 24px 0;
+    display:flex;
+    flex-direction:column;
+    align-items:flex-start;
+  }
+  .hero .kicker{
+    font-size:11.5px;
+    color:var(--gold-2);
+    letter-spacing:.12em;
+    font-weight:500;
+    margin-bottom:14px;
+  }
+  .hero .title{
+    font-family:"Noto Serif JP",serif;
+    font-weight:700;
+    font-size:32px;
+    line-height:1.35;
+    letter-spacing:.04em;
+    color:var(--ink);
+    margin:0 0 18px;
+  }
+  .hero .lead{
+    font-size:13px;
+    color:#3a3a3a;
+    line-height:1.9;
+    margin:0 0 24px;
+  }
+  .hero .cta{
+    display:inline-flex;align-items:center;justify-content:center;gap:14px;
+    min-width:200px;
+    height:48px;
+    padding:0 18px;
+    background:#fff;
+    border:1px solid #d9d2c4;
+    color:var(--ink);
+    text-decoration:none;
+    font-size:13px;
+    letter-spacing:.04em;
+    border-radius:2px;
+  }
+  .hero .cta svg{width:10px;height:10px;}
+  .hero-dots{
+    position:absolute;
+    left:0;right:0;bottom:14px;
+    display:flex;justify-content:center;gap:6px;
+    z-index:4;
+  }
+  .hero-dots .dot{
+    width:24px;height:3px;border-radius:2px;background:#e5dccc;
+  }
+  .hero-dots .dot.on{background:var(--gold);width:24px;}
+
+  /* ===== Section title ===== */
+  .section-title{
+    display:flex;align-items:center;justify-content:center;
+    gap:14px;
+    font-family:"Noto Serif JP",serif;
+    font-weight:600;
+    font-size:18px;
+    letter-spacing:.08em;
+  }
+  .section-title::before,
+  .section-title::after{
+    content:"";display:block;width:28px;height:1px;background:currentColor;opacity:.6;
+  }
+
+  /* ===== Ranking (dark) ===== */
+  .ranking{
+    background:var(--ink);
+    color:#fff;
+    padding:24px 0 20px;
+    position:relative;
+  }
+  .ranking .head{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:0 20px;
+    margin-bottom:14px;
+  }
+  .ranking .head .section-title{color:#fff;flex:1;justify-content:center;margin-right:-60px;}
+  .ranking .head .all{
+    color:#d8d2c4;font-size:11px;letter-spacing:.05em;
+    display:flex;align-items:center;gap:4px;
+    text-decoration:none;white-space:nowrap;
+  }
+  .ranking .head .all svg{width:10px;height:10px;}
+  .rank-row{
+    display:flex;gap:12px;
+    padding:0 20px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .rank-row::-webkit-scrollbar{display:none;}
+  .rank-card{
+    flex:0 0 calc((100% - 24px) / 2.4);
+    background:var(--ink-2);
+    border-radius:4px;
+    overflow:hidden;
+    scroll-snap-align:start;
+    position:relative;
+  }
+  .rank-card .img{
+    position:relative;
+    aspect-ratio:1/1;
+    background:
+      radial-gradient(120% 80% at 60% 50%, rgba(0,0,0,0) 0%, rgba(0,0,0,.6) 100%),
+      repeating-linear-gradient(135deg,#3a3023 0 10px,#2c2419 10px 20px);
+    background-size:cover;
+    background-position:center;
+  }
+  .rank-card .img.has-img{
+    background:var(--img) center/cover no-repeat;
+  }
+  .rank-card .badge{
+    position:absolute;top:0;left:0;
+    width:28px;height:36px;
+    background:var(--gold);
+    color:#fff;
+    font-family:"Cormorant Garamond",serif;
+    font-weight:600;font-size:18px;
+    display:grid;place-items:center;
+    clip-path: polygon(0 0,100% 0,100% 100%,50% 86%,0 100%);
+  }
+  .rank-card .meta{padding:10px 12px 14px;}
+  .rank-card .name{
+    font-size:13px;color:#fff;font-weight:500;margin:0 0 2px;
+    letter-spacing:.02em;
+  }
+  .rank-card .weight{
+    font-size:11px;color:#a8a39a;margin-bottom:8px;
+  }
+  .rank-card .price{
+    font-family:"Noto Serif JP",serif;
+    color:#fff;font-weight:600;font-size:18px;letter-spacing:.02em;
+  }
+  .rank-card .price .tax{
+    font-size:10px;color:#a8a39a;margin-left:4px;font-family:"Noto Sans JP",sans-serif;font-weight:400;
+  }
+  .rank-card .stars{
+    margin-top:6px;display:flex;align-items:center;gap:6px;
+    font-size:10px;color:#a8a39a;
+  }
+  .stars .row{display:flex;gap:1px;color:var(--star);}
+  .stars .row svg{width:11px;height:11px;}
+
+  .nav-arrow{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:28px;height:28px;border-radius:50%;
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);
+    display:grid;place-items:center;
+    color:#fff;
+  }
+  .nav-arrow.left{left:6px;}
+  .nav-arrow.right{right:6px;}
+  .nav-arrow svg{width:10px;height:10px;}
+
+  .ranking .more{
+    margin:24px 20px 0;
+  }
+  .rank-dots{
+    display:flex;justify-content:center;gap:6px;margin-top:18px;
+  }
+  .rank-dots .dot{width:18px;height:3px;border-radius:2px;background:#3a3f49;}
+  .rank-dots .dot.on{background:var(--gold);width:24px;}
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    width:100%;
+    height:48px;
+    border-radius:2px;
+    font-size:13px;letter-spacing:.06em;
+    font-weight:500;
+    background:#fff;
+    color:var(--ink);
+    border:1px solid #d9d2c4;
+    text-decoration:none;
+    cursor:pointer;
+  }
+  .btn svg{width:10px;height:10px;}
+  .btn.dark{background:transparent;color:#fff;border-color:#4c525e;}
+  .btn.gold{
+    background:var(--gold);color:#fff;border-color:var(--gold);
+  }
+  .btn.compact{height:44px;font-size:12px;}
+
+  /* ===== Reasons ===== */
+  .reasons{padding:24px 20px 20px;background:#fff;color:var(--ink);}
+  .reasons .section-title{color:var(--ink);margin-bottom:16px;}
+  .reasons .grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:8px;
+  }
+  .reason{
+    text-align:center;
+  }
+  .reason .ic{
+    width:46px;height:46px;
+    margin:0 auto 10px;
+    border-radius:50%;
+    background:#f6f1e6;
+    color:var(--gold-2);
+    display:grid;place-items:center;
+  }
+  .reason .ic svg{width:24px;height:24px;}
+  .reason .t{
+    font-size:11px;color:var(--ink);font-weight:600;
+    margin-bottom:6px;line-height:1.4;
+    letter-spacing:.02em;
+  }
+  .reason .d{
+    font-size:9.5px;color:#7a7a7a;line-height:1.6;
+  }
+
+  /* ===== Scenes ===== */
+  .scenes{padding:24px 20px 20px;background:#fff;}
+  .scenes .section-title{color:var(--ink);margin-bottom:14px;}
+  .scenes .grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
+    margin-bottom:14px;
+  }
+  .scene{
+    position:relative;aspect-ratio:1/1;border-radius:2px;overflow:hidden;
+    background:#2a2218;
+    display:grid;place-items:end center;
+    color:#fff;
+  }
+  .scene .ph{
+    position:absolute;inset:0;
+    background:
+      radial-gradient(120% 80% at 50% 30%, rgba(0,0,0,0) 0%, rgba(0,0,0,.7) 100%),
+      repeating-linear-gradient(120deg,#3a2c1d 0 10px,#2b2014 10px 20px);
+    background-size:cover;
+    background-position:center;
+  }
+  .scene .ph.img{
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(0,0,0,.55) 100%),
+      var(--img) center/cover no-repeat;
+  }
+  .scene .ic{
+    position:absolute;top:40%;left:50%;transform:translate(-50%,-50%);
+    width:30px;height:30px;color:#fff;opacity:.9;
+  }
+  .scene .ic svg{width:100%;height:100%;}
+  .scene .l{
+    position:relative;
+    font-size:11px;font-weight:600;letter-spacing:.08em;
+    padding:0 0 8px;
+  }
+
+  /* ===== Gift ===== */
+  .gift{
+    background:var(--ink-3);color:#fff;
+    padding:0;
+    position:relative;
+    overflow:hidden;
+    aspect-ratio:1/1;
+    display:flex;flex-direction:column;
+  }
+  .gift .stage{
+    position:relative;
+    width:100%;
+    flex:1;
+    overflow:hidden;
+  }
+  .gift .stage .bg{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,0) 60%, rgba(0,0,0,.15) 100%),
+      url('assets/gift-box.png') center/cover no-repeat;
+  }
+  .gift .stage::before{
+    content:"";
+    position:absolute;inset:0;
+    background:
+      linear-gradient(90deg,
+        rgba(17,21,28,.92) 0%,
+        rgba(17,21,28,.78) 30%,
+        rgba(17,21,28,.35) 55%,
+        rgba(17,21,28,0) 75%);
+    z-index:2;
+  }
+  .gift .overlay{
+    position:absolute;inset:0;
+    z-index:3;
+    padding:48px 24px 0;
+    display:flex;flex-direction:column;align-items:flex-start;
+  }
+  .gift h2{
+    font-family:"Noto Serif JP",serif;
+    font-weight:600;
+    font-size:24px;
+    line-height:1.5;
+    letter-spacing:.04em;
+    margin:0 0 16px;
+    color:#fff;
+  }
+  .gift p.lead{
+    font-size:12.5px;color:#e2dbcb;line-height:1.95;margin:0 0 22px;
+  }
+  .gift .btn.gold{max-width:210px;height:48px;}
+  .gift .features{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:0;
+    padding:18px 20px;
+    background:var(--ink-3);
+    border-top:1px solid var(--line-dark);
+    border-bottom:1px solid var(--line-dark);
+  }
+  .gift .feature{
+    text-align:center;
+    font-size:10px;color:#cfc8b9;line-height:1.5;
+    display:flex;flex-direction:column;align-items:center;gap:6px;
+  }
+  .gift .feature svg{width:22px;height:22px;color:var(--gold-soft);}
+
+  /* ===== Instagram ===== */
+  .insta{
+    background:#fff;padding:24px 20px 20px;
+  }
+  .insta .top{
+    display:flex;align-items:center;gap:12px;margin-bottom:12px;
+  }
+  .insta .logo{
+    width:42px;height:42px;border-radius:10px;
+    background:
+      radial-gradient(circle at 30% 110%, #ffd776 0%, #f58529 25%, #dd2a7b 50%, #8134af 75%, #515bd4 100%);
+    display:grid;place-items:center;color:#fff;
+    flex-shrink:0;
+  }
+  .insta .logo svg{width:22px;height:22px;}
+  .insta .title{
+    font-family:"Noto Serif JP",serif;font-size:14px;font-weight:600;color:var(--ink);margin:0 0 2px;
+  }
+  .insta .sub{font-size:11px;color:#7a7a7a;line-height:1.6;}
+  .insta .grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:12px;
+  }
+  .insta .grid .cell{
+    aspect-ratio:1/1;
+    background:var(--img) center/cover no-repeat;
+  }
+  .insta .follow{
+    height:46px;
+    border:1px solid #d9d2c4;border-radius:2px;
+    background:#fff;color:var(--ink);
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    font-size:12px;font-weight:500;letter-spacing:.04em;
+    text-decoration:none;
+  }
+  .insta .follow .ig{
+    width:18px;height:18px;border-radius:5px;
+    background:
+      radial-gradient(circle at 30% 110%, #ffd776 0%, #f58529 25%, #dd2a7b 50%, #8134af 75%, #515bd4 100%);
+    display:grid;place-items:center;
+    color:#fff;
+  }
+  .insta .follow .ig svg{width:10px;height:10px;}
+
+  /* ===== Footer ===== */
+  .foot{
+    background:#fff;border-top:1px solid var(--line);
+  }
+  .foot ul{
+    list-style:none;margin:0;padding:0;
+  }
+  .foot li{
+    border-bottom:1px solid var(--line);
+  }
+  .foot li a{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 20px;
+    font-size:13px;color:var(--ink);text-decoration:none;
+  }
+  .foot li a svg{width:8px;height:8px;color:#bfb8a6;}
+  .copy{
+    padding:22px 20px 28px;
+    font-size:10.5px;color:#9a9a9a;text-align:center;
+    display:flex;justify-content:center;align-items:center;gap:6px;
+    letter-spacing:.02em;
+  }
+  .copy .mini-logo{
+    width:14px;height:14px;
+  }
+
+  .page-top{
+    position:fixed;
+    right:14px;
+    bottom:14px;
+    width:44px;height:44px;border-radius:50%;
+    background:#fff;border:1px solid #e2dbcb;
+    display:grid;place-items:center;
+    color:var(--ink);
+    font-size:8.5px;letter-spacing:.08em;font-weight:600;
+    flex-direction:column;text-align:center;line-height:1.1;
+    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    z-index:40;
+    text-decoration:none;
+  }
+  .page-top svg{width:10px;height:10px;margin-bottom:1px;color:var(--gold-2);}
+
+  @media (min-width:431px){
+    body{padding:0;}
+    .page{box-shadow:0 0 40px rgba(0,0,0,.08);}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header class="header">
+    <button class="icon-btn" aria-label="menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+        <path d="M3 6h18M3 12h18M3 18h18"/>
+      </svg>
+    </button>
+
+    <a href="#" class="brand" aria-label="肉乃ヤタヤ">
+      <img class="crest" src="assets/logo.png" alt="肉乃ヤタヤ ロゴ" />
+      <span class="txt">
+        <span class="name">肉乃ヤタヤ</span>
+        <span class="romaji">YATAYA</span>
+      </span>
+    </a>
+
+    <button class="icon-btn" aria-label="cart">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M5 7h14l-1.5 10.5a2 2 0 0 1-2 1.7H8.5a2 2 0 0 1-2-1.7L5 7Z"/>
+        <path d="M9 7a3 3 0 1 1 6 0"/>
+      </svg>
+      <span class="cart-badge">0</span>
+    </button>
+  </header>
+
+  <!-- SHIPPING BANNER -->
+  <div class="ship-banner">
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7"/>
+        <circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/>
+      </svg>
+      <span>全国送料無料</span>
+    </div>
+    <div class="divider"></div>
+    <div>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4" y="5" width="16" height="15" rx="1"/>
+        <path d="M4 9h16M8 3v4M16 3v4"/>
+      </svg>
+      <span>最短2営業日で発送</span>
+    </div>
+  </div>
+
+  <!-- HERO (text overlaid on the image) -->
+  <section class="hero">
+    <div class="stage">
+      <div class="ph"></div>
+      <div class="overlay">
+        <div class="kicker">厳選された神戸牛ヒレ</div>
+        <h1 class="title">贅沢な厚切りで。</h1>
+        <p class="lead">きめ細やかな肉質と、<br/>とろけるような柔らかさ。<br/>口の中で広がる濃厚な旨みを<br/>ご堪能ください。</p>
+        <a href="#" class="cta">
+          商品詳細を見る
+          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+        </a>
+      </div>
+      <div class="hero-dots">
+        <span class="dot on"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- RANKING -->
+  <section class="ranking">
+    <div class="head">
+      <h2 class="section-title">人気商品ランキング</h2>
+      <a href="#" class="all">すべて見る
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round">
+          <path d="M3 1l4 4-4 4"/>
+        </svg>
+      </a>
+    </div>
+
+    <button class="nav-arrow left" aria-label="prev">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M7 1L3 5l4 4"/></svg>
+    </button>
+    <button class="nav-arrow right" aria-label="next">
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+    </button>
+
+    <div class="rank-row">
+      <article class="rank-card">
+        <div class="img"><span class="badge">1</span></div>
+        <div class="meta">
+          <h3 class="name">神戸牛 ヒレステーキ</h3>
+          <div class="weight">150g（1枚）</div>
+          <div class="price">¥8,980<span class="tax">（税込）</span></div>
+          <div class="stars">
+            <span class="row">
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor" opacity=".4"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+            </span>
+            <span>（124件）</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="rank-card">
+        <div class="img"><span class="badge">2</span></div>
+        <div class="meta">
+          <h3 class="name">神戸牛 ロースステーキ</h3>
+          <div class="weight">250g（1枚）</div>
+          <div class="price">¥6,480<span class="tax">（税込）</span></div>
+          <div class="stars">
+            <span class="row">
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+            </span>
+            <span>（128件）</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="rank-card">
+        <div class="img has-img" style="--img:url('assets/rank-sukiyaki.png')"><span class="badge">3</span></div>
+        <div class="meta">
+          <h3 class="name">特選すき焼き肉</h3>
+          <div class="weight">500g</div>
+          <div class="price">¥6,980<span class="tax">（税込）</span></div>
+          <div class="stars">
+            <span class="row">
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+              <svg viewBox="0 0 12 12" fill="currentColor" opacity=".4"><path d="M6 .5l1.7 3.5 3.8.6-2.8 2.7.7 3.8L6 9.3 2.6 11.1l.7-3.8L.5 4.6l3.8-.6z"/></svg>
+            </span>
+            <span>（76件）</span>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <div class="more">
+      <a href="#" class="btn dark">
+        すべての商品を見る
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+      </a>
+    </div>
+
+    <div class="rank-dots">
+      <span class="dot on"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+    </div>
+  </section>
+
+  <!-- REASONS -->
+  <section class="reasons">
+    <h2 class="section-title">肉乃ヤタヤが選ばれる理由</h2>
+    <div class="grid">
+      <div class="reason">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 9c0-2 1-3 2-3 .8 0 1.2.4 1.5.8.5-.6 1.4-1 2.5-1s2 .4 2.5 1c.3-.4.7-.8 1.5-.8 1 0 2 1 2 3"/>
+            <path d="M4 13c0-1.5 2-3 4-3h8c2 0 4 1.5 4 3v2c0 3-3 5-8 5s-8-2-8-5v-2Z"/>
+            <path d="M10 15h.01M14 15h.01"/>
+          </svg>
+        </div>
+        <div class="t">厳選した黒毛和牛</div>
+        <div class="d">職人の目利きで選んだ<br/>A4等級以上の和牛のみ。</div>
+      </div>
+      <div class="reason">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="11" r="6"/>
+            <path d="M9 16l-1.5 5L12 18.5 16.5 21 15 16"/>
+            <path d="M12 8v3l2 1"/>
+          </svg>
+        </div>
+        <div class="t">神戸牛専門店のこだわり</div>
+        <div class="d">神戸牛のみを扱う<br/>専門店だからこその品質。</div>
+      </div>
+      <div class="reason">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 3v18M3 12h18M5.5 5.5l13 13M18.5 5.5l-13 13"/>
+            <path d="M12 5l-1.5 1.5M12 5l1.5 1.5M12 19l-1.5-1.5M12 19l1.5-1.5M5 12l1.5-1.5M5 12l1.5 1.5M19 12l-1.5-1.5M19 12l-1.5 1.5"/>
+          </svg>
+        </div>
+        <div class="t">鮮度そのまま冷凍</div>
+        <div class="d">急速冷凍で旨みを<br/>閉じ込め、最高の状態で。</div>
+      </div>
+      <div class="reason">
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 7h11v10H3z"/>
+            <path d="M14 10h4l3 3v4h-7"/>
+            <circle cx="7" cy="18" r="1.6"/><circle cx="17" cy="18" r="1.6"/>
+          </svg>
+        </div>
+        <div class="t">迅速な配送</div>
+        <div class="d">最短2営業日で発送、<br/>全国送料無料。</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCENES -->
+  <section class="scenes">
+    <h2 class="section-title">シーンで選ぶ</h2>
+    <div class="grid">
+      <div class="scene">
+        <div class="ph img" style="--img:url('assets/scene-yakiniku.png')"></div>
+        <div class="l">焼肉</div>
+      </div>
+      <div class="scene">
+        <div class="ph img" style="--img:url('assets/scene-sukiyaki.png')"></div>
+        <div class="l">すき焼き</div>
+      </div>
+      <div class="scene">
+        <div class="ph"></div>
+        <div class="ic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round">
+            <path d="M4 4l5 5M9 4l-5 5"/>
+            <path d="M19 4v8c0 1-1 2-2 2s-2-1-2-2V4M17 14v6"/>
+          </svg>
+        </div>
+        <div class="l">ステーキ</div>
+      </div>
+      <div class="scene">
+        <div class="ph img" style="--img:url('assets/gift-box.png')"></div>
+        <div class="l">ギフト</div>
+      </div>
+    </div>
+    <a href="#" class="btn">
+      すべてのシーンを見る
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+    </a>
+  </section>
+
+  <!-- GIFT -->
+  <section class="gift">
+    <div class="stage">
+      <div class="bg"></div>
+      <div class="overlay">
+        <h2>大切な方へ、<br/>心に残る美味しさを。</h2>
+        <p class="lead">高級感のある化粧箱でお届け。<br/>熨斗・メッセージカードも対応可能です。</p>
+        <a href="#" class="btn gold">
+          ギフト商品を見る
+          <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <div class="features">
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="3" y="6" width="18" height="13" rx="1"/>
+          <path d="M3 7l9 7 9-7"/>
+        </svg>
+        <span>熨斗・カード<br/>無料対応</span>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 8h11v8H3z"/>
+          <path d="M14 11h4l3 3v2h-7"/>
+          <circle cx="7" cy="17" r="1.4"/><circle cx="17" cy="17" r="1.4"/>
+        </svg>
+        <span>最短2営業日で発送<br/>全国送料無料</span>
+      </div>
+      <div class="feature">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 8h16v12H4z"/>
+          <path d="M4 8l2-3h12l2 3"/>
+          <path d="M12 5v15"/>
+        </svg>
+        <span>高級感ある<br/>化粧箱入り</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section class="insta">
+    <div class="top">
+      <div class="logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r=".9" fill="currentColor"/>
+        </svg>
+      </div>
+      <div>
+        <div class="title">Instagramで最新情報を発信中</div>
+        <div class="sub">美味しいお肉の情報や、キャンペーン情報を<br/>いち早くお届けします。</div>
+      </div>
+    </div>
+    <div class="grid">
+      <a href="https://www.instagram.com/nikuno_yataya/" target="_blank" class="cell" style="--img:url('assets/insta-1.png')"></a>
+      <a href="https://www.instagram.com/nikuno_yataya/" target="_blank" class="cell" style="--img:url('assets/insta-2.png')"></a>
+      <a href="https://www.instagram.com/nikuno_yataya/" target="_blank" class="cell" style="--img:url('assets/insta-3.png')"></a>
+      <a href="https://www.instagram.com/nikuno_yataya/" target="_blank" class="cell" style="--img:url('assets/insta-4.png')"></a>
+    </div>
+    <a href="#" class="follow">
+      <span class="ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="3" y="3" width="18" height="18" rx="5"/>
+          <circle cx="12" cy="12" r="4"/>
+          <circle cx="17.5" cy="6.5" r="1" fill="currentColor"/>
+        </svg>
+      </span>
+      @nikuno_yataya をフォローする
+      <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" style="width:10px;height:10px;color:#888"><path d="M3 1l4 4-4 4"/></svg>
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <nav class="foot">
+    <ul>
+      <li><a href="#">ご利用ガイド
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+      </a></li>
+      <li><a href="#">特定商取引法に基づく表記
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+      </a></li>
+      <li><a href="#">プライバシーポリシー
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+      </a></li>
+      <li><a href="#">お問い合わせ
+        <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 1l4 4-4 4"/></svg>
+      </a></li>
+    </ul>
+    <div class="copy">
+      <img class="mini-logo" src="assets/logo.png" alt="" />
+      © 肉乃ヤタヤ All Rights Reserved.
+    </div>
+  </nav>
+
+  <a href="#top" class="page-top" aria-label="page top">
+    <svg viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M5 7L5 3M2.5 5.5L5 3l2.5 2.5"/></svg>
+    PAGE<br/>TOP
+  </a>
+
+</div>
+</body>
+</html>
