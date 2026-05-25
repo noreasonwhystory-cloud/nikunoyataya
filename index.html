@@ -15,9 +15,11 @@
     --ink:#1f242e;
     --ink-2:#262b35;
     --ink-3:#11151c;
+    --bg-dark:#08090c;
     --line:#e9e4dc;
     --line-dark:#2f3540;
-    --body:#3a3a3a;
+    --section-line:rgba(255,255,255,.08);
+    --body:#cfc8b9;
     --muted:#8b8b8b;
     --bg:#ffffff;
     --bg-soft:#fbf8f3;
@@ -29,7 +31,7 @@
   body{
     font-family:"Noto Sans JP","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;
     color:var(--body);
-    background:#f3f1ec;
+    background:var(--bg-dark);
     -webkit-font-smoothing:antialiased;
     text-rendering:optimizeLegibility;
     line-height:1.6;
@@ -37,10 +39,14 @@
   .page{
     max-width:430px;
     margin:0 auto;
-    background:#fff;
+    background:var(--bg-dark);
     min-height:100vh;
     position:relative;
     overflow:hidden;
+  }
+  .hero,.ranking,.reasons,.scenes,.gift,.insta,.foot{
+    background:var(--bg-dark) !important;
+    border-top:1px solid var(--section-line);
   }
 
   /* ===== Header ===== */
@@ -321,9 +327,9 @@
     border-radius:2px;
     font-size:13px;letter-spacing:.06em;
     font-weight:500;
-    background:#fff;
-    color:var(--ink);
-    border:1px solid #d9d2c4;
+    background:transparent;
+    color:#fff;
+    border:1px solid rgba(255,255,255,.22);
     text-decoration:none;
     cursor:pointer;
   }
@@ -335,8 +341,8 @@
   .btn.compact{height:44px;font-size:12px;}
 
   /* ===== Reasons ===== */
-  .reasons{padding:24px 20px 20px;background:#fff;color:var(--ink);}
-  .reasons .section-title{color:var(--ink);margin-bottom:16px;}
+  .reasons{padding:24px 20px 20px;color:#fff;}
+  .reasons .section-title{color:#fff;margin-bottom:16px;}
   .reasons .grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -349,23 +355,23 @@
     width:46px;height:46px;
     margin:0 auto 10px;
     border-radius:50%;
-    background:#f6f1e6;
-    color:var(--gold-2);
+    background:rgba(255,255,255,.06);
+    color:var(--gold-soft);
     display:grid;place-items:center;
   }
   .reason .ic svg{width:24px;height:24px;}
   .reason .t{
-    font-size:11px;color:var(--ink);font-weight:600;
+    font-size:11px;color:#fff;font-weight:600;
     margin-bottom:6px;line-height:1.4;
     letter-spacing:.02em;
   }
   .reason .d{
-    font-size:9.5px;color:#7a7a7a;line-height:1.6;
+    font-size:9.5px;color:#a8a39a;line-height:1.6;
   }
 
   /* ===== Scenes ===== */
-  .scenes{padding:24px 20px 20px;background:#fff;}
-  .scenes .section-title{color:var(--ink);margin-bottom:14px;}
+  .scenes{padding:24px 20px 20px;}
+  .scenes .section-title{color:#fff;margin-bottom:14px;}
   .scenes .grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:8px;
     margin-bottom:14px;
@@ -456,9 +462,8 @@
     gap:8px;
     margin:0;
     padding:18px 20px;
-    background:var(--ink-3);
-    border-top:1px solid var(--line-dark);
-    border-bottom:1px solid var(--line-dark);
+    background:var(--bg-dark);
+    border-top:1px solid var(--section-line);
   }
   .gift .feature{
     text-align:center;
@@ -469,7 +474,7 @@
 
   /* ===== Instagram ===== */
   .insta{
-    background:#fff;padding:24px 20px 20px;
+    padding:24px 20px 20px;
   }
   .insta .top{
     display:flex;align-items:center;gap:12px;margin-bottom:12px;
@@ -483,9 +488,9 @@
   }
   .insta .logo svg{width:22px;height:22px;}
   .insta .title{
-    font-family:"Noto Serif JP",serif;font-size:14px;font-weight:600;color:var(--ink);margin:0 0 2px;
+    font-family:"Noto Serif JP",serif;font-size:14px;font-weight:600;color:#fff;margin:0 0 2px;
   }
-  .insta .sub{font-size:11px;color:#7a7a7a;line-height:1.6;}
+  .insta .sub{font-size:11px;color:#a8a39a;line-height:1.6;}
   .insta .grid{
     display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:12px;
   }
@@ -495,8 +500,8 @@
   }
   .insta .follow{
     height:46px;
-    border:1px solid #d9d2c4;border-radius:2px;
-    background:#fff;color:var(--ink);
+    border:1px solid rgba(255,255,255,.22);border-radius:2px;
+    background:transparent;color:#fff;
     display:flex;align-items:center;justify-content:center;gap:10px;
     font-size:12px;font-weight:500;letter-spacing:.04em;
     text-decoration:none;
@@ -512,23 +517,23 @@
 
   /* ===== Footer ===== */
   .foot{
-    background:#fff;border-top:1px solid var(--line);
+    border-top:1px solid var(--section-line);
   }
   .foot ul{
     list-style:none;margin:0;padding:0;
   }
   .foot li{
-    border-bottom:1px solid var(--line);
+    border-bottom:1px solid var(--section-line);
   }
   .foot li a{
     display:flex;align-items:center;justify-content:space-between;
     padding:18px 20px;
-    font-size:13px;color:var(--ink);text-decoration:none;
+    font-size:13px;color:#fff;text-decoration:none;
   }
-  .foot li a svg{width:8px;height:8px;color:#bfb8a6;}
+  .foot li a svg{width:8px;height:8px;color:#7a7065;}
   .copy{
     padding:22px 20px 28px;
-    font-size:10.5px;color:#9a9a9a;text-align:center;
+    font-size:10.5px;color:#7a7065;text-align:center;
     display:flex;justify-content:center;align-items:center;gap:6px;
     letter-spacing:.02em;
   }
@@ -541,16 +546,16 @@
     right:14px;
     bottom:14px;
     width:44px;height:44px;border-radius:50%;
-    background:#fff;border:1px solid #e2dbcb;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);
     display:grid;place-items:center;
-    color:var(--ink);
+    color:#fff;
     font-size:8.5px;letter-spacing:.08em;font-weight:600;
     flex-direction:column;text-align:center;line-height:1.1;
-    box-shadow:0 4px 12px rgba(0,0,0,.06);
+    box-shadow:0 4px 12px rgba(0,0,0,.3);
     z-index:40;
     text-decoration:none;
   }
-  .page-top svg{width:10px;height:10px;margin-bottom:1px;color:var(--gold-2);}
+  .page-top svg{width:10px;height:10px;margin-bottom:1px;color:var(--gold-soft);}
 
   @media (min-width:431px){
     body{padding:0;}
